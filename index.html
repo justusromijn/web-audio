@@ -7,7 +7,8 @@
 </head>
 <body>
   <h1>Web Audio Playground</h1>
-  <button onclick="noteDetect.getNotes()">Audio Snapshot</button>
+  <div id="highest">playing <span id="note"></span></div>
+  <button onclick="noteDetect.takeSnapshot()">Audio Snapshot</button>
   <canvas id="visual"></canvas>
   <canvas id="zoomed"></canvas>
 
@@ -19,6 +20,7 @@
     NoteDetect.init().then(
       function(object){
         noteDetect = object;
+        noteDetect.getNotes();
     }, function(message){
       alert(message);
     });
